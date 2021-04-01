@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="login-page">
+    <div class="container">
+      <ion-avatar>
+        <img src="/assets/img/logo.jpg">
+      </ion-avatar>
+      <div class="title">Prueba técnica</div>
+      <ion-item-group [formGroup]="user">
+        <ion-item lines="full" class="ion-no-padding ion-padding-top">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <span class="error" *ngIf="validationError && emailErrors">
+          {{ getErrorMessage('email', emailErrors) }}
+        </span>
+        <ion-item lines="full" class="ion-no-padding">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input formControlName="password" type="password" placeholder="Constraseña"></ion-input>
+        </ion-item>
+        <div class="error" *ngIf="validationError && passwordErrors">
+          {{ getErrorMessage('password', passwordErrors) }}
+        </div>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-label>Recordar</ion-label>
+          <ion-toggle formControlName="reminder" class="ion-no-padding ion-padding-top ion-padding-bottom"></ion-toggle>
+        </ion-item>
+        <ion-button type="submit" (click)="login()">Acceder</ion-button>
+      </ion-item-group>
+    </div>
+  </div>
+</ion-content>
