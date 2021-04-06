@@ -42,5 +42,24 @@ describe('LoginPage', () => {
     expect(component.validationError).toBeFalsy();
   });
 
+  it('should retrieve email validation error messages', () => {
+    let validationError = component.getErrorMessage('email', {required: true});
+    expect(validationError).toBeDefined();
+    validationError = component.getErrorMessage('email', {email: true});
+    expect(validationError).toBeDefined();
+  });
+
+  it('should retrieve password validation error messages', () => {
+    let validationError = component.getErrorMessage('password', {required: true});
+    expect(validationError).toBeDefined();
+    validationError = component.getErrorMessage('password', {minlength: true});
+    expect(validationError).toBeDefined();
+  });
+
+
+  it('should not retrieve validation error message', () => {
+    const validationError = component.getErrorMessage('invalidKey', {invalidValidationError: true});
+    expect(validationError).toBeUndefined();
+  });
 
 });

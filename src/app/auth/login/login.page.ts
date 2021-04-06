@@ -61,6 +61,6 @@ export class LoginPage implements OnInit {
   getErrorMessage(field: string, errorList: ValidationErrors) {
     const errorKey = Object.keys(errorList)[0];
     const errors = this.validationMessages[field];
-    return errors.find((message) => message.type === errorKey).message;
+    return errors?.find((validationMessage) => validationMessage.type === errorKey).message;
   }
 }

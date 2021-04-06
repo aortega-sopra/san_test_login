@@ -17,9 +17,9 @@
           <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
           <ion-input formControlName="password" type="password" placeholder="Constraseña"></ion-input>
         </ion-item>
-        <div class="error" *ngIf="validationError && passwordErrors">
+        <span class="error" *ngIf="validationError && passwordErrors">
           {{ getErrorMessage('password', passwordErrors) }}
-        </div>
+        </span>
         <ion-item lines="none" class="ion-no-padding">
           <ion-label>Recordar</ion-label>
           <ion-toggle formControlName="reminder" class="ion-no-padding ion-padding-top ion-padding-bottom"></ion-toggle>
